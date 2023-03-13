@@ -1,10 +1,10 @@
 * Spring 2023 - Lab 07
 
-* Last name:
+* Last name:Chaudhry
 
-* First name:
+* First name:Muhammad
 
-* GitHub username:
+* GitHub username:MuhammadC11
 
 * Notes:
 
