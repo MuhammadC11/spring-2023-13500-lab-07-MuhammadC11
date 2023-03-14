@@ -5,7 +5,7 @@
 
 int main()
 {
-    std::string line = "    hello";
-    std::cout << removeLeadingSpaces(line);
+
+    std::cout << newFile("badFormat.cpp") << std::endl;
     return 0;
 }
