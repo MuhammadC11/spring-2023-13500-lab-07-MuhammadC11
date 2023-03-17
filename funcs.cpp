@@ -29,7 +29,7 @@ std::string removeLeadingSpaces(std::string line)
     return newLine; // return the new line
 }
 
-int countChar(std::string line, char c, char d)
+int countChar(std::string line, char c)
 {
     int count = 0; // counter for the number of times the character appears in the line
 
@@ -41,14 +41,8 @@ int countChar(std::string line, char c, char d)
             i++;
             count++;
         }
-        else if (line[i] == d) // if the current character is a '}', subtract one from the indent counter
-        {
-            count--;
-        }
-        if (line[0] == d)
-        {
-            count--;
-        }
+       
+        
     }
 
     return count; // return the counter
@@ -72,10 +66,7 @@ std::string newFile(std::string name)
         std::getline(data_file, line);              // get each line from the input file and stores it into the string "line"
         newLine = removeLeadingSpaces(line) + "\n"; // add the line without any spaces to newFileString with a new line character at the end.
                                                     // add the number of '{' and '}' in the line to the counter
-        if (newLine[0] == '}')
-        {
-            count--;
-        }
+        count -= countChar(newLine, '}');
         if (count > 0)
         {
             for (int i = 0; i < count; i++) // loop through the counter
@@ -84,7 +75,7 @@ std::string newFile(std::string name)
             }
         }
         newFileString += newLine;
-        count += countChar(newLine, '{', '}');
+        count += countChar(newLine, '{');
 
         // count the number of '{' and '}' in the line and add or subtract from the counter
     }
